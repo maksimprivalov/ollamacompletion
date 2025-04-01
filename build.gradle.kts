@@ -14,6 +14,7 @@ repositories {
 dependencies {
     implementation("io.github.ollama4j:ollama4j:1.0.93")
     implementation("dev.langchain4j:langchain4j-ollama:0.25.0")
+    implementation("org.projectlombok:lombok:1.18.28")
 }
 
 intellij {

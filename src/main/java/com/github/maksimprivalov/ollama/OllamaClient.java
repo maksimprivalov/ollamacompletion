@@ -1,4 +1,4 @@
-package ollamacompletion.ollama;
+package com.github.maksimprivalov.ollama;
 import dev.langchain4j.data.message.UserMessage;
 import dev.langchain4j.model.ollama.OllamaChatModel;
 
@@ -8,7 +8,7 @@ public class OllamaClient {
 
     private static final OllamaChatModel model = OllamaChatModel.builder()
             .baseUrl("http://localhost:11434")
-            .modelName("starcoder:1b")
+            .modelName("starcoder2:3b")
             .temperature(0.2)
             .build();
 
