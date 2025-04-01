@@ -47,7 +47,7 @@ public class Trie {
             // In the situation when we have 2+ nods in our Trie branch we need to check weather
             // the next character of the prompt is the next char. after the node on the branch,
             // if not, return the content (AI generated response we stored in previous iterations).
-            // Note: we also should check the suffix after.
+            // Note: we also should check the prefix after.
             if(current.isEndOfWord() && current.getChildren().get(ch) == null){
                 return current.getContent();
             }
@@ -63,7 +63,10 @@ public class Trie {
         // prompt ends here -> we can use the response stored at this node!
         return current.getContent();
     }
-
+    public void clear() {
+        root = new TrieNode(); // make root pointer null so JVM will delete all the branches.
+        lruCache.clear();
+    }
     public void delete(String line) {
         delete(root, line, 0);
         lruCache.remove(line); // remove from LRU Cache too

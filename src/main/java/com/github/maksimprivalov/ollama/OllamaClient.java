@@ -20,7 +20,8 @@ public class OllamaClient {
         }
 
         try {
-            return model.generate(new UserMessage(prompt)).content().text();
+            UserMessage um = new UserMessage(prompt);
+            return model.generate(um).content().text();
         } catch (Exception e) {
             return "// Exception Ollama: " + e.getClass().getSimpleName() + " - " + e.getMessage();
         }

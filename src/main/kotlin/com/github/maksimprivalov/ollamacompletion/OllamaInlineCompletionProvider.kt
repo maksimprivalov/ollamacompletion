@@ -23,13 +23,13 @@ class OllamaInlineCompletionProvider : InlineCompletionProvider {
 
         if (prompt.isBlank()) return@flow
 
-        // In case when the prompt is the suffix of existing response or the
+        // In case when the prompt is the prefix of existing response or the
         val content = TrieSingleton.trie.getContent(prompt)
         if (content != null){
-            val withOutSuffix = content.removeSuffix(prompt)
-            // If prompt was the suffix of existing response (mean full code (old prompt + response!))
-            if(withOutSuffix != content){
-                emit(InlineCompletionElement(withOutSuffix))
+            val withOutPrefix = content.removePrefix(prompt)
+            // If prompt was the prefix of existing response (mean full code (old prompt + response!))
+            if(withOutPrefix != content){
+                emit(InlineCompletionElement(withOutPrefix))
                 return@flow
             }
         }
