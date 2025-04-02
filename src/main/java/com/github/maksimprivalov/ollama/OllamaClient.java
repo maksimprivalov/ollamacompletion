@@ -16,7 +16,7 @@ public class OllamaClient {
         if (MOCK_MODE) return "// mock completion";
 
         if (prompt == null || prompt.trim().isEmpty()) {
-            return "// empty prompt";
+            return "";
         }
 
         try {

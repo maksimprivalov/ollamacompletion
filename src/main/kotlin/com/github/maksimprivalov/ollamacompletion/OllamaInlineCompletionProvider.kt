@@ -13,8 +13,6 @@ import com.github.maksimprivalov.ollama.OllamaClient
 
 class OllamaInlineCompletionProvider : InlineCompletionProvider {
     override fun isEnabled(event: InlineCompletionEvent): Boolean = true
-
-
     override suspend fun getProposals(request: InlineCompletionRequest): Flow<InlineCompletionElement> = flow {
         val editor = request.editor
 
